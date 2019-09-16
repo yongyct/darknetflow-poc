@@ -1,0 +1,12 @@
+**/.idea/*
+**/.ipynb_checkpoints/*
+**/__pycache__/*
+**/*.egg-info/*
+**/build/*
+
+**/data/*
+**/weights/*
+
+*.pxd
+*.pyd
+*.c
