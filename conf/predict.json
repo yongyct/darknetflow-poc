@@ -1,0 +1,22 @@
+{
+    "ops":"predict",
+    "data_dir":"../data",
+    "weights_dir":"../weights",
+    "labels_file":"./labels.txt",
+    "threshold":-0.1,
+    "model":"",
+    "optimizer":"rmsprop",
+    "momentum":0.0,
+    "loss":,
+    "verbose":true,
+    "use_gpu":false,
+    "gpu_name":"",
+    "lr":1e-5,
+    "batch_size":16,
+    "n_epochs":10,
+    "save_interval":1000,
+    "use_webcam":false,
+    "demo_queue":1,
+    "use_json_bb":false,
+    "save_video":false
+}
