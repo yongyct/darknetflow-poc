@@ -12,11 +12,16 @@ MODEL_CONF_KEY = 'model_conf'
 # 2nd Level Config Keys, job
 DATA_DIR_KEY = 'data_dir'
 BATCH_SIZE_KEY = 'batch_size'
+USE_GPU_KEY = 'use_gpu'
 
 # 2nd Level Config Keys, model
 HEIGHT_KEY = 'height'
 WIDTH_KEY = 'width'
 CHANNELS_KEY = 'channels'
+
+# Tensorflow Constants
+PAD_VALID = 'VALID'
+PAD_SAME = 'SAME'
 
 # Others
 IMAGE_EXTENSIONS = ['jpg', 'jpeg', 'png', 'bmp', 'tiff']

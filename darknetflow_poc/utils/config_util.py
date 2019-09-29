@@ -3,7 +3,7 @@ import argparse
 import logging
 
 from darknetflow_poc.utils.constants import JOB_CONF_KEY, MODEL_CONF_KEY, DATA_DIR_KEY, BATCH_SIZE_KEY, \
-    HEIGHT_KEY, WIDTH_KEY, CHANNELS_KEY
+    HEIGHT_KEY, WIDTH_KEY, CHANNELS_KEY, USE_GPU_KEY
 
 
 def get_user_conf():
@@ -43,6 +43,7 @@ class UserConfig:
 
         self.DATA_DIR = conf[JOB_CONF_KEY][DATA_DIR_KEY]
         self.BATCH_SIZE = conf[JOB_CONF_KEY][BATCH_SIZE_KEY]
+        self.USE_GPU = conf[JOB_CONF_KEY][USE_GPU_KEY]
 
         self.INPUT_DIM = [
             conf[MODEL_CONF_KEY][HEIGHT_KEY],

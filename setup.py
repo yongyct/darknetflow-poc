@@ -9,5 +9,5 @@ setuptools.setup(
     description="Darknetflow POC",
     url="https://github.com/yongyct/darknetflow-poc",
     packages=setuptools.find_packages(),
-    ext_modules=cythonize('darknetflow_poc/cython_utils/hello.pyx')
+    ext_modules=cythonize('darknetflow_poc/utils/cython_utils/hello.pyx')
 )
