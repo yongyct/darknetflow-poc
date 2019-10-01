@@ -17,10 +17,10 @@ class TomNet(BaseNet):
         # Depending on NCHW or NHWC
         # pad1 = [[0, 0], [1, 1], [1, 1], [0, 0]]
 
-        input = tf.placeholder(dtype=tf.float32, shape=[None] + conf.INPUT_DIM, name=INPUT_NAME)
+        input_data = tf.placeholder(dtype=tf.float32, shape=[None] + conf.INPUT_DIM, name=INPUT_NAME)
 
         conv1 = tf.layers.conv2d(
-            inputs=input,
+            inputs=input_data,
             filters=32,
             kernel_size=3,
             strides=(1, 1),
@@ -61,5 +61,5 @@ class TomNet(BaseNet):
         )
         softmax = tf.nn.softmax(logits)
 
-        self.input = input
-        self.output = softmax
+        self.input_data = input_data
+        self.output_data = softmax

@@ -59,13 +59,13 @@ def main():
                 batch_data_list
             )
 
-            feed_dict = {tom.input: np.concatenate(batch_input, axis=0)}
+            feed_dict = {tom.input_data: np.concatenate(batch_input, axis=0)}
 
             start_time = time.time()
-            batch_output = sess.run(tom.output, feed_dict=feed_dict)
+            batch_output = sess.run(tom.output_data, feed_dict=feed_dict)
 
             # TODO: implement post processing logic
-            logging.info(batch_output)
+            print(batch_output)
 
             end_time = time.time()
 
