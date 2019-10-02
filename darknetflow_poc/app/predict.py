@@ -9,7 +9,7 @@ import tensorflow as tf
 
 from darknetflow_poc.utils import config_util, validation_util, data_util
 from darknetflow_poc.exceptions.conf_error import InvalidConfigError
-from darknetflow_poc.topologies.models.tomnet import TomNet
+from darknetflow_poc.topologies.models.tom_model import TomModel
 
 
 def handle_error(e):
@@ -36,7 +36,7 @@ def main():
     n_batches = math.ceil(len(input_data_list) / batch_size)
     pool = ThreadPool()
 
-    tom = TomNet(conf)
+    tom = TomModel(conf)
 
     if conf.USE_GPU:
         device = tf.device('/GPU:0')
@@ -55,13 +55,9 @@ def main():
                 batch_data_list
             )
 
-            # feed_dict = {tom.input_data: np.concatenate(batch_input, axis=0)}
-
             start_time = time.time()
-            # batch_output = sess.run(tom.output_data, feed_dict=feed_dict)
 
             batch_output = tom(np.concatenate(batch_input, axis=0), training=False)
-
             # TODO: implement post processing logic
             print(batch_output)
 

@@ -1,7 +1,7 @@
 import tensorflow as tf
 
 
-class BaseNet(tf.keras.Model):
+class BaseModel(tf.keras.Model):
     """
     Base class for forming other network topologies
     """

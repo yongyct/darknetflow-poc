@@ -1,11 +1,11 @@
 import tensorflow as tf
 
-from darknetflow_poc.topologies.models.basenet import BaseNet
+from darknetflow_poc.topologies.models.base_model import BaseModel
 
 from darknetflow_poc.utils.constants import PAD_SAME, RELU, SIGMOID
 
 
-class TomNet(BaseNet):
+class TomModel(BaseModel):
     """
     Sample network
     """
@@ -47,14 +47,16 @@ class TomNet(BaseNet):
             rate=0.4
         )
         self.logits = tf.keras.layers.Dense(
-            units=10,
+            units=4,
             activation=SIGMOID
         )
         self.softmax = tf.keras.layers.Softmax()
+        tf.keras.backend.conv2d()
 
     def call(self, inputs, training=None):
         super().call(inputs)
         print('Calling TomNet')
+        print(inputs.shape)
         inputs = self.conv1(inputs)
         inputs = self.pool1(inputs)
         inputs = self.conv2(inputs)
@@ -65,5 +67,4 @@ class TomNet(BaseNet):
         inputs = self.dense2(inputs)
         inputs = self.dropout2(inputs, training)
         inputs = self.logits(inputs)
-        inputs = self.softmax(inputs)
-        return inputs
+        return self.softmax(inputs)
