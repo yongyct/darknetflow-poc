@@ -9,7 +9,7 @@ import tensorflow as tf
 
 from darknetflow_poc.utils import config_util, validation_util, data_util
 from darknetflow_poc.exceptions.conf_error import InvalidConfigError
-from darknetflow_poc.models.networks.tomnet import TomNet
+from darknetflow_poc.topologies.models.tomnet import TomNet
 
 
 def handle_error(e):
@@ -39,15 +39,11 @@ def main():
     tom = TomNet(conf)
 
     if conf.USE_GPU:
-        config = tf.ConfigProto()
-        config.gpu_options.allow_growth = True
+        device = tf.device('/GPU:0')
     else:
-        config = tf.ConfigProto(
-            device_count={'GPU': 0}
-        )
-    gv_init = tf.global_variables_initializer()
-    with tf.Session(config=config) as sess:
-        sess.run(gv_init)
+        device = tf.device('/device:CPU:0')
+
+    with device:
 
         for i in range(n_batches):
             start_idx = i * batch_size
@@ -59,10 +55,12 @@ def main():
                 batch_data_list
             )
 
-            feed_dict = {tom.input_data: np.concatenate(batch_input, axis=0)}
+            # feed_dict = {tom.input_data: np.concatenate(batch_input, axis=0)}
 
             start_time = time.time()
-            batch_output = sess.run(tom.output_data, feed_dict=feed_dict)
+            # batch_output = sess.run(tom.output_data, feed_dict=feed_dict)
+
+            batch_output = tom(np.concatenate(batch_input, axis=0), training=False)
 
             # TODO: implement post processing logic
             print(batch_output)

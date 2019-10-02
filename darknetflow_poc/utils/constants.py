@@ -20,8 +20,10 @@ WIDTH_KEY = 'width'
 CHANNELS_KEY = 'channels'
 
 # Tensorflow Constants
-PAD_VALID = 'VALID'
-PAD_SAME = 'SAME'
+PAD_VALID = 'valid'
+PAD_SAME = 'same'
+RELU = 'relu'
+SIGMOID = 'sigmoid'
 
 # Others
 IMAGE_EXTENSIONS = ['jpg', 'jpeg', 'png', 'bmp', 'tiff']
