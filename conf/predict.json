@@ -2,7 +2,7 @@
     "job_conf": {
         "ops":"predict",
         "data_dir":"./data",
-        "weights_dir":"./weights/tom_model",
+        "weights_dir":"./weights/yolo_v3_model",
         "labels_file":"./labels.txt",
         "verbose":true,
         "use_gpu":false,

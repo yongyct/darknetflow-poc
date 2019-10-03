@@ -4,13 +4,14 @@ import logging
 import math
 import time
 from multiprocessing.pool import ThreadPool
+from functools import partial
 
 import numpy as np
 import tensorflow as tf
 
 from darknetflow_poc.utils import config_util, validation_util, data_util
 from darknetflow_poc.exceptions.conf_error import InvalidConfigError
-from darknetflow_poc.topologies.models.tom_model import TomModel
+from darknetflow_poc.topologies.models import YoloV3Model
 
 
 def handle_error(e):
@@ -37,9 +38,9 @@ def main():
     n_batches = math.ceil(len(input_data_list) / batch_size)
     pool = ThreadPool()
 
-    tom = TomModel(conf)
+    yolo = YoloV3Model(conf)
     step = tf.Variable(0)
-    ckpt = tf.train.Checkpoint(step=step, model=tom)
+    ckpt = tf.train.Checkpoint(step=step, model=yolo)
     if tf.train.latest_checkpoint(conf.WEIGHTS_DIR):
         ckpt.restore(tf.train.latest_checkpoint(conf.WEIGHTS_DIR)).expect_partial()
         print('Predicting from checkpoint {}'.format(int(ckpt.step)))
@@ -59,15 +60,15 @@ def main():
 
             batch_data_list = input_data_list[start_idx:end_idx]
             batch_input = pool.map(
-                data_util.get_preprocessed_image,
+                partial(data_util.get_preprocessed_image, dim=conf.INPUT_DIM),
                 batch_data_list
             )
 
             start_time = time.time()
 
-            batch_output = tf.argmax(tom(np.concatenate(batch_input, axis=0), training=False), axis=1)
+            batch_output = yolo(np.concatenate(batch_input, axis=0), training=False)
             # TODO: implement post processing logic
-            print(batch_output)
+            # print(batch_output.shape)
 
             end_time = time.time()
 

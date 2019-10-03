@@ -16,12 +16,12 @@ def get_input_images(conf):
             if file_name.split('.')[-1].lower() in IMAGE_EXTENSIONS]
 
 
-def get_preprocessed_image(image):
+def get_preprocessed_image(image, dim):
     """
     Pre-process input image and returns it as a numpy ndarray
     :param image: input image to be preprocessed
     :return: numpy representation of image
     """
-    img_norm = (255 - cv2.resize(cv2.imread(image, 0), (40, 30), interpolation=cv2.INTER_AREA)) / 255
-    # img_norm = cv2.imread(image) / 255
-    return np.expand_dims(np.expand_dims(a=img_norm, axis=0), axis=-1)
+    # img_norm = (255 - cv2.resize(cv2.imread(image, 0), (40, 30), interpolation=cv2.INTER_AREA)) / 255
+    img_norm = cv2.resize(cv2.imread(image), (dim[0], dim[1]), interpolation=cv2.INTER_AREA) / 255
+    return np.expand_dims(a=img_norm, axis=0)
