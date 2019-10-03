@@ -22,5 +22,6 @@ def get_preprocessed_image(image):
     :param image: input image to be preprocessed
     :return: numpy representation of image
     """
-    img_norm = cv2.imread(image) / 255
-    return np.expand_dims(a=img_norm, axis=0)
+    img_norm = (255 - cv2.resize(cv2.imread(image, 0), (40, 30), interpolation=cv2.INTER_AREA)) / 255
+    # img_norm = cv2.imread(image) / 255
+    return np.expand_dims(np.expand_dims(a=img_norm, axis=0), axis=-1)

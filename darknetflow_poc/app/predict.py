@@ -1,3 +1,4 @@
+import os
 import sys
 import logging
 import math
@@ -37,6 +38,13 @@ def main():
     pool = ThreadPool()
 
     tom = TomModel(conf)
+    step = tf.Variable(0)
+    ckpt = tf.train.Checkpoint(step=step, model=tom)
+    if tf.train.latest_checkpoint(conf.WEIGHTS_DIR):
+        ckpt.restore(tf.train.latest_checkpoint(conf.WEIGHTS_DIR)).expect_partial()
+        print('Predicting from checkpoint {}'.format(int(ckpt.step)))
+    else:
+        print('No checkpoint models found... predicting from random weights')
 
     if conf.USE_GPU:
         device = tf.device('/GPU:0')
@@ -57,7 +65,7 @@ def main():
 
             start_time = time.time()
 
-            batch_output = tom(np.concatenate(batch_input, axis=0), training=False)
+            batch_output = tf.argmax(tom(np.concatenate(batch_input, axis=0), training=False), axis=1)
             # TODO: implement post processing logic
             print(batch_output)
 

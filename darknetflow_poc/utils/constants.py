@@ -11,8 +11,11 @@ MODEL_CONF_KEY = 'model_conf'
 
 # 2nd Level Config Keys, job
 DATA_DIR_KEY = 'data_dir'
+WEIGHTS_DIR_KEY = 'weights_dir'
 BATCH_SIZE_KEY = 'batch_size'
 USE_GPU_KEY = 'use_gpu'
+N_EPOCHS_KEY = 'n_epochs'
+SAVE_INTERVAL_KEY = 'save_interval'
 
 # 2nd Level Config Keys, model
 HEIGHT_KEY = 'height'

@@ -51,12 +51,9 @@ class TomModel(BaseModel):
             activation=SIGMOID
         )
         self.softmax = tf.keras.layers.Softmax()
-        tf.keras.backend.conv2d()
 
     def call(self, inputs, training=None):
         super().call(inputs)
-        print('Calling TomNet')
-        print(inputs.shape)
         inputs = self.conv1(inputs)
         inputs = self.pool1(inputs)
         inputs = self.conv2(inputs)
