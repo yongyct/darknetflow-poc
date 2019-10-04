@@ -68,7 +68,7 @@ def main():
 
             batch_output = yolo(np.concatenate(batch_input, axis=0), training=False)
             # TODO: implement post processing logic
-            # print(batch_output.shape)
+            # print(batch_output)
 
             end_time = time.time()
 

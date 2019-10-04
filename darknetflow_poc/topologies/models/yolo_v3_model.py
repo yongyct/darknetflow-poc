@@ -2,8 +2,9 @@ import tensorflow as tf
 import tensorflow.keras.layers as layers
 
 from darknetflow_poc.topologies.models.base_model import BaseModel
+from darknetflow_poc.topologies.layers.yolo_v3_layer import YoloV3Layer
 
-from darknetflow_poc.utils.constants import PAD_SAME, RELU, SIGMOID
+from darknetflow_poc.utils.constants import PAD_SAME, RELU, SIGMOID, PAD_VALID
 
 
 class YoloV3Model(BaseModel):
@@ -73,6 +74,7 @@ class YoloV3Model(BaseModel):
         self.conv57 = layers.Conv2D(filters=512, kernel_size=1, strides=1, padding=PAD_SAME)
         self.conv58 = layers.Conv2D(filters=1024, kernel_size=3, strides=1, padding=PAD_SAME)
         self.conv59 = layers.Conv2D(filters=255, kernel_size=1, strides=1, padding=PAD_SAME)
+        self.yolo1 = YoloV3Layer(anchors=[(116, 90), (156, 198), (373, 326)], conf=conf)
 
     def call(self, inputs):
         print('0 - Input: {}'.format(inputs.shape))
@@ -82,7 +84,9 @@ class YoloV3Model(BaseModel):
         inputs = self.conv2(inputs)
         inputs = shortcut = self.bn(tf.nn.leaky_relu(features=inputs, alpha=0.1))
         print('2 - Conv2D: {}'.format(inputs.shape))
+        print('Check2', inputs)
         inputs = self.conv3(inputs)
+        print('Check3', inputs)
         inputs = self.bn(tf.nn.leaky_relu(features=inputs, alpha=0.1))
         print('3 - Conv2D: {}'.format(inputs.shape))
         inputs = self.conv4(inputs)
@@ -298,5 +302,7 @@ class YoloV3Model(BaseModel):
         print('81 - Conv2D: {}'.format(inputs.shape))
         inputs = self.conv59(inputs)
         print('82 - Conv2D: {}'.format(inputs.shape))
+        inputs = self.yolo1(inputs)
+        print('83 - YoloV3: {}'.format(inputs.shape))
 
         return inputs

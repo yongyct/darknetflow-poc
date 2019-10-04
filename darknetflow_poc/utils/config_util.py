@@ -3,8 +3,8 @@ import argparse
 import logging
 
 from darknetflow_poc.utils.constants import JOB_CONF_KEY, MODEL_CONF_KEY, DATA_DIR_KEY, BATCH_SIZE_KEY, \
-    HEIGHT_KEY, WIDTH_KEY, CHANNELS_KEY, USE_GPU_KEY, WEIGHTS_DIR_KEY, N_EPOCHS_KEY, SAVE_INTERVAL_KEY
-
+    HEIGHT_KEY, WIDTH_KEY, CHANNELS_KEY, USE_GPU_KEY, WEIGHTS_DIR_KEY, N_EPOCHS_KEY, SAVE_INTERVAL_KEY, \
+    N_CLASSES_KEY
 
 def get_user_conf():
     """
@@ -53,3 +53,4 @@ class UserConfig:
             conf[MODEL_CONF_KEY][WIDTH_KEY],
             conf[MODEL_CONF_KEY][CHANNELS_KEY]
         ]
+        self.N_CLASSES = conf[MODEL_CONF_KEY][N_CLASSES_KEY]

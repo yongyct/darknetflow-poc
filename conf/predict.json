@@ -24,7 +24,8 @@
         "lr":1e-5,
         "height":256,
         "width":256,
-        "channels":3
+        "channels":3,
+        "n_classes":80
     }
 
 }

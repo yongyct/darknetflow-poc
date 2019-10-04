@@ -7,6 +7,7 @@ class BaseModel(tf.keras.Model):
     """
     def __init__(self, conf):
         super().__init__()
+        self.conf = conf
         print('Calling BaseNet')
 
     def call(self, inputs):

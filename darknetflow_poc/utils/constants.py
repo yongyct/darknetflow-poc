@@ -21,6 +21,7 @@ SAVE_INTERVAL_KEY = 'save_interval'
 HEIGHT_KEY = 'height'
 WIDTH_KEY = 'width'
 CHANNELS_KEY = 'channels'
+N_CLASSES_KEY = 'n_classes'
 
 # Tensorflow Constants
 PAD_VALID = 'valid'
