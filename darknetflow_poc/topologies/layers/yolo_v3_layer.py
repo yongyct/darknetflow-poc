@@ -7,8 +7,9 @@ class YoloV3Layer(BaseLayer):
     """
     Base class for implementing custom layers
     """
-    def __init__(self):
-        super().__init__()
+    def __init__(self, anchors):
+        super(YoloV3Layer, self).__init__()
+        self.anchors = anchors
         pass
 
     def build(self):

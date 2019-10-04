@@ -10,7 +10,7 @@ class TomModel(BaseModel):
     Sample network
     """
     def __init__(self, conf):
-        super().__init__(conf)
+        super(TomModel, self).__init__(conf)
         self.conv1 = tf.keras.layers.Conv2D(
             filters=3,
             kernel_size=3,
@@ -53,7 +53,6 @@ class TomModel(BaseModel):
         self.softmax = tf.keras.layers.Softmax()
 
     def call(self, inputs, training=None):
-        super().call(inputs)
         inputs = self.conv1(inputs)
         inputs = self.pool1(inputs)
         inputs = self.conv2(inputs)

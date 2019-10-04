@@ -11,7 +11,7 @@ class YoloV3Model(BaseModel):
     Implementation of tf keras version of YOLO V3
     """
     def __init__(self, conf):
-        super().__init__(conf)
+        super(YoloV3Model, self).__init__(conf)
         self.conv1 = layers.Conv2D(filters=32, kernel_size=3, strides=1, padding=PAD_SAME)
         # momentum = either 1 or 0 to shut off effects
         self.bn = layers.BatchNormalization(epsilon=1e-5, momentum=0.999, center=False, scale=True)
