@@ -16,6 +16,8 @@ BATCH_SIZE_KEY = 'batch_size'
 USE_GPU_KEY = 'use_gpu'
 N_EPOCHS_KEY = 'n_epochs'
 SAVE_INTERVAL_KEY = 'save_interval'
+DARKNET_WEIGHTS_PATH_KEY = 'darknet_weights_path'
+DARKNET_CFG_PATH_KEY = 'darknet_cfg_path'
 
 # 2nd Level Config Keys, model
 HEIGHT_KEY = 'height'

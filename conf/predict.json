@@ -13,7 +13,9 @@
         "use_webcam":false,
         "demo_queue":1,
         "use_json_bb":false,
-        "save_video":false
+        "save_video":false,
+        "darknet_weights_path":"./weights/darknet/yolov3.weights",
+        "darknet_cfg_path":"./weights/darknet/yolov3.cfg"
     },
     "model_conf": {
         "model":"",

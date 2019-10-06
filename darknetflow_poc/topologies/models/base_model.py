@@ -12,3 +12,8 @@ class BaseModel(tf.keras.Model):
 
     def call(self, inputs):
         pass
+
+
+class ModelLayers:
+    def __init__(self):
+        pass

@@ -4,7 +4,7 @@ import logging
 
 from darknetflow_poc.utils.constants import JOB_CONF_KEY, MODEL_CONF_KEY, DATA_DIR_KEY, BATCH_SIZE_KEY, \
     HEIGHT_KEY, WIDTH_KEY, CHANNELS_KEY, USE_GPU_KEY, WEIGHTS_DIR_KEY, N_EPOCHS_KEY, SAVE_INTERVAL_KEY, \
-    N_CLASSES_KEY
+    N_CLASSES_KEY, DARKNET_CFG_PATH_KEY, DARKNET_WEIGHTS_PATH_KEY
 
 def get_user_conf():
     """
@@ -47,6 +47,8 @@ class UserConfig:
         self.N_EPOCHS = conf[JOB_CONF_KEY][N_EPOCHS_KEY]
         self.SAVE_INTERVAL = conf[JOB_CONF_KEY][SAVE_INTERVAL_KEY]
         self.USE_GPU = conf[JOB_CONF_KEY][USE_GPU_KEY]
+        self.DARKNET_WEIGHTS_PATH = conf[JOB_CONF_KEY][DARKNET_WEIGHTS_PATH_KEY]
+        self.DARKNET_CFG_PATH = conf[JOB_CONF_KEY][DARKNET_CFG_PATH_KEY]
 
         self.INPUT_DIM = [
             conf[MODEL_CONF_KEY][HEIGHT_KEY],
