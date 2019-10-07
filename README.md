@@ -25,6 +25,11 @@ Under `conf` folder, edit the properties as per your machine's settings:
 * `width`: width in pixels that input should be resized to before feeding to model
 * `channels`: channels of input data, usually 3
 * `n_classes`: number of classes in the file defined under `labels_path`
+### Starting the Program
+To start prediction of image files in a folder, run the below command from the project root folder (inside `darknetflow-poc` folder after git cloning the repo if you didn't change the default target folder name)
+```(bash)
+scripts/dnf-predict-keras.bat
+```
 
 # TODO
 ## Ops Modes
