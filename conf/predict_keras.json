@@ -3,20 +3,18 @@
         "ops":"predict",
         "in_data_dir":"./data",
         "out_data_dir":"./data/out",
-        "weights_dir":"./weights/yolo_v3_model",
+        "weights_dir":"./weights/tom_model",
         "labels_path":"./conf/labels.txt",
-        "verbose":true,
         "use_gpu":false,
-        "gpu_name":"",
         "batch_size":16,
         "n_epochs":10,
         "save_interval":1000,
         "use_webcam":false,
-        "demo_queue":1,
-        "use_json_bb":false,
-        "save_video":false,
+        "keras_weights_path":"./weights/yolo_v3_keras/yolo.h5",
         "darknet_weights_path":"./weights/darknet/yolov3.weights",
-        "darknet_cfg_path":"./weights/darknet/yolov3.cfg"
+        "darknet_cfg_path":"./weights/darknet/yolov3.cfg",
+        "object_threshold":0.6,
+        "nms_threshold":0.5
     },
     "model_conf": {
         "model":"",
@@ -25,8 +23,8 @@
         "momentum":0.0,
         "loss":"",
         "lr":1e-5,
-        "height":256,
-        "width":256,
+        "height":416,
+        "width":416,
         "channels":3,
         "n_classes":80
     }

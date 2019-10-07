@@ -1,7 +1,10 @@
+import os
 import logging
 
 from darknetflow_poc.utils import data_util
 from darknetflow_poc.exceptions.conf_error import InvalidConfigError
+
+from darknetflow_poc.utils.constants import PREDICT
 
 
 def validate_user_conf(conf):
@@ -17,4 +20,9 @@ def validate_user_conf(conf):
     # Input data availability check
     is_no_input_data = len(data_util.get_input_images(conf)) == 0
     if is_no_input_data:
-        raise InvalidConfigError('No valid images/videos found in path: {}'.format(conf.DATA_DIR))
+        raise InvalidConfigError('No valid images/videos found in path: {}'.format(conf.IN_DATA_DIR))
+
+    # Create output folders if not available
+    if conf.OPS.strip().lower() == PREDICT:
+        if not os.path.exists(conf.OUT_DATA_DIR):
+            os.mkdir(conf.OUT_DATA_DIR)

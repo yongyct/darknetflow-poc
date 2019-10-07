@@ -63,7 +63,7 @@ def main():
                 end_idx = start_idx + batch_size
 
                 batch_data_filenames = input_data_filenames[start_idx:end_idx]
-                batch_input = pool.map(
+                batch_input, _ = pool.map(
                     data_util.get_preprocessed_image,
                     batch_data_filenames
                 )

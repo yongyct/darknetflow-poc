@@ -3,7 +3,7 @@
         "ops":"predict",
         "data_dir":"./data",
         "weights_dir":"./weights/tom_model",
-        "labels_file":"./labels.txt",
+        "labels_path":"./conf/labels.txt",
         "verbose":true,
         "use_gpu":false,
         "gpu_name":"",
