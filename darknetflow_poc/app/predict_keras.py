@@ -45,7 +45,6 @@ def main():
         for input_data_filename in input_data_list:
             original_image = cv2.imread(input_data_filename)
             input_data = data_util.get_preprocessed_image(input_data_filename, conf.INPUT_DIM)
-            print(input_data.shape)
             output_data = yolo(input_data)
             # TODO: implement post processing logic
             if not conf.USE_WEBCAM:
@@ -62,7 +61,6 @@ def main():
                         classes=classes,
                         all_classes=data_util.get_all_class_labels(conf)
                     )
-                    print(os.path.join(conf.OUT_DATA_DIR, os.path.basename(input_data_filename)))
                     cv2.imwrite(os.path.join(conf.OUT_DATA_DIR, os.path.basename(input_data_filename)), original_image)
 
         end_time = time.time()
