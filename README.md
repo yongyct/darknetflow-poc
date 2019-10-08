@@ -1,5 +1,5 @@
-# Darknetflow POC (WIP)
-POC Implementation with References to Darknet (Darkflow)
+# Object Detection POC
+Object Detection POC Implementation with References to Implementations of YOLO
 
 # Getting Started
 ## Installation
