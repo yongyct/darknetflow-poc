@@ -19,8 +19,8 @@ Under `conf` folder, edit the properties as per your machine's settings:
 * `n_epochs`: number of epochs, each iterating through the whole dataset
 * `save_interval`: number of steps before saving weights checkpoint
 * `keras_weights_path`: path to keras weights, if using keras weights
-* `object_threshold`: threshold value above which object will be considered
-* `nms_threshold`: threshold value used when selecting nms boxes
+* `object_threshold`: min value below which object will be discarded
+* `nms_threshold`: max IOU value above which (supposedly) duplicated prediction will be discarded 
 * `height`: height in pixels that input should be resized to before feeding to model
 * `width`: width in pixels that input should be resized to before feeding to model
 * `channels`: channels of input data, usually 3
