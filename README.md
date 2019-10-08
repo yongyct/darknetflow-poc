@@ -5,6 +5,7 @@ POC Implementation with References to Darknet (Darkflow)
 ## Installation
 After cloning this git repository into your machine, at the root directory, run the following to install the repository's packages to your python environment:
 * `pip install -e .`
+*without this step you will face the error:* `ModuleNotFoundError: No module named 'object_detection_poc'`
 
 ## Simple Usage
 ### Configurations

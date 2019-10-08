@@ -2,7 +2,7 @@ import os
 import cv2
 import numpy as np
 
-from darknetflow_poc.utils.constants import IMAGE_EXTENSIONS
+from object_detection_poc.utils.constants import IMAGE_EXTENSIONS
 
 
 def get_input_images(conf):
@@ -35,7 +35,7 @@ def get_all_class_labels(conf):
     """
     with open(conf.LABELS_PATH) as labels_file:
         class_labels = labels_file.readlines()
-    return [class_label.strip for class_label in class_labels]
+    return [class_label.strip() for class_label in class_labels]
 
 
 def draw_bounding_boxes(image, boxes, scores, classes, all_classes):
@@ -59,7 +59,7 @@ def draw_bounding_boxes(image, boxes, scores, classes, all_classes):
         cv2.rectangle(image, (top, left), (right, bottom), (255, 0, 0), 2)
         cv2.putText(
             image,
-            '{} {:.2f}'.format(all_classes[int(cl)], score),
+            '{} {:.2f}'.format(all_classes[int(cl)], score.item()),
             (top, left - 6),
             cv2.FONT_HERSHEY_SIMPLEX,
             0.6,

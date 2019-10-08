@@ -1,8 +1,8 @@
 import numpy as np
 import tensorflow as tf
 
-from darknetflow_poc.utils import config_util
-from darknetflow_poc.topologies.models import YoloV3Model
+from object_detection_poc.utils import config_util
+from object_detection_poc.topologies.models import YoloV3Model
 
 
 def convert_weights(conf):

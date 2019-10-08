@@ -8,9 +8,9 @@ from multiprocessing.pool import ThreadPool
 import numpy as np
 import tensorflow as tf
 
-from darknetflow_poc.utils import config_util, validation_util, data_util
-from darknetflow_poc.exceptions.conf_error import InvalidConfigError
-from darknetflow_poc.topologies.models.tom_model import TomModel
+from object_detection_poc.utils import config_util, validation_util, data_util
+from object_detection_poc.exceptions.conf_error import InvalidConfigError
+from object_detection_poc.topologies.models.tom_model import TomModel
 
 
 def handle_error(e):

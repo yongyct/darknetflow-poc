@@ -1,10 +1,10 @@
 import tensorflow as tf
 import tensorflow.keras.layers as layers
 
-from darknetflow_poc.topologies.models.base_model import BaseModel, ModelLayers
-from darknetflow_poc.topologies.layers.yolo_v3_layer import YoloV3Layer
+from object_detection_poc.topologies.models.base_model import BaseModel, ModelLayers
+from object_detection_poc.topologies.layers.yolo_v3_layer import YoloV3Layer
 
-from darknetflow_poc.utils.constants import PAD_SAME, RELU, SIGMOID, PAD_VALID
+from object_detection_poc.utils.constants import PAD_SAME, RELU, SIGMOID, PAD_VALID
 
 
 class YoloV3Model(BaseModel):

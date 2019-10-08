@@ -4,11 +4,10 @@ import logging
 import time
 import cv2
 
-import numpy as np
 import tensorflow as tf
 
-from darknetflow_poc.utils import config_util, validation_util, data_util
-from darknetflow_poc.exceptions.conf_error import InvalidConfigError
+from object_detection_poc.utils import config_util, validation_util, data_util
+from object_detection_poc.exceptions.conf_error import InvalidConfigError
 
 
 def handle_error(e):
@@ -48,7 +47,7 @@ def main():
             output_data = yolo(input_data)
             # TODO: implement post processing logic
             if not conf.USE_WEBCAM:
-                boxes, scores, classes = data_util.yolo_out(
+                boxes, classes, scores = data_util.yolo_out(
                     outs=output_data,
                     shape=original_image.shape,
                     conf=conf

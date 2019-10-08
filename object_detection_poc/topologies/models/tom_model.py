@@ -1,8 +1,8 @@
 import tensorflow as tf
 
-from darknetflow_poc.topologies.models.base_model import BaseModel
+from object_detection_poc.topologies.models.base_model import BaseModel
 
-from darknetflow_poc.utils.constants import PAD_SAME, RELU, SIGMOID
+from object_detection_poc.utils.constants import PAD_SAME, RELU, SIGMOID
 
 
 class TomModel(BaseModel):

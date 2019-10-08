@@ -1,10 +1,10 @@
 import os
 import logging
 
-from darknetflow_poc.utils import data_util
-from darknetflow_poc.exceptions.conf_error import InvalidConfigError
+from object_detection_poc.utils import data_util
+from object_detection_poc.exceptions.conf_error import InvalidConfigError
 
-from darknetflow_poc.utils.constants import PREDICT
+from object_detection_poc.utils.constants import PREDICT
 
 
 def validate_user_conf(conf):

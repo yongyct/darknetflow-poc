@@ -9,9 +9,9 @@ from functools import partial
 import numpy as np
 import tensorflow as tf
 
-from darknetflow_poc.utils import config_util, validation_util, data_util
-from darknetflow_poc.exceptions.conf_error import InvalidConfigError
-from darknetflow_poc.topologies.models import YoloV3Model
+from object_detection_poc.utils import config_util, validation_util, data_util
+from object_detection_poc.exceptions.conf_error import InvalidConfigError
+from object_detection_poc.topologies.models import YoloV3Model
 
 
 def handle_error(e):
