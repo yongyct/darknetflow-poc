@@ -1,4 +1,4 @@
 Cython==0.29.13
-opencv-python==3.3.1
+opencv-python==4.2.0.32
 numpy==1.16.4
 tensorflow-gpu==2.0.1
